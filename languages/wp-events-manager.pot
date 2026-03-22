@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Events Manager\n"
+
+msgid "Events"
+msgstr ""
+
+msgid "Event Type"
+msgstr ""
+
+msgid "Event Details"
+msgstr ""
+
+msgid "Login required"
+msgstr ""
+
+msgid "RSVP Confirmed"
+msgstr ""
+
+msgid "RSVP"
+msgstr ""
+
+msgid "Event Date"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+
+
