@@ -34,7 +34,7 @@
                  	<label>Location</label>
                  </div>
                  <div class='wpem-form-control'>
-              		  <textarea name ='location'> ". esc_attr($location) ." </textarea>
+              		  <textarea name ='location'> ". esc_textarea($location) ." </textarea>
               	</div>";
     }
 
@@ -53,6 +53,8 @@
 
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 
+        if (get_post_type($post_id) !== 'event') return;
+
         // Save Date
         if (isset($_POST['event_date'])) {
             update_post_meta(
@@ -67,7 +69,7 @@
             update_post_meta(
                 $post_id,
                 '_location',
-                sanitize_text_field($_POST['location'])
+                sanitize_textarea_field($_POST['location'])
             );
         }
     }

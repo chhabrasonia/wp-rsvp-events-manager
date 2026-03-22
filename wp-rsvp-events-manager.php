@@ -4,6 +4,7 @@
  * Description: A Events Manager Plugin along with RSVP
  * Text Domain: wp-events-manager
  * Author     : Sonia Chhabra
+ * Update URI : false
  */
 
 if (!defined('ABSPATH')) exit;
@@ -35,18 +36,25 @@ add_action('admin_enqueue_scripts', function () {
 });
 
 
-require_once WPEM_PATH . '/includes/class-installer.php';
-require_once WPEM_PATH . '/includes/class-event.php';
-require_once WPEM_PATH . '/includes/class-event-meta.php';
-require_once WPEM_PATH . '/includes/class-event-admin-columns.php';
-require_once WPEM_PATH . '/includes/class-event-shortcode.php';
-require_once WPEM_PATH . '/includes/class-event-api-controller.php';
-require_once WPEM_PATH . '/includes/class-template-loader.php';
+require_once WPEM_PATH . 'includes/class-installer.php';
+require_once WPEM_PATH . 'includes/class-event.php';
+require_once WPEM_PATH . 'includes/class-event-meta.php';
+require_once WPEM_PATH . 'includes/class-event-admin-columns.php';
+require_once WPEM_PATH . 'includes/class-event-shortcode.php';
+require_once WPEM_PATH . 'includes/class-event-notifications.php';
+require_once WPEM_PATH . 'includes/class-event-rsvp.php';
+require_once WPEM_PATH . 'includes/class-event-api-controller.php';
+require_once WPEM_PATH . 'includes/class-template-loader.php';
+
+if (defined('WP_CLI') && WP_CLI) {
+    require_once WPEM_PATH . 'includes/class-event-cli.php';
+}
+
 
 /*
 ************************
  * Activation Hook
 ************************
  */
-register_activation_hook(__FILE__, ['Event_Installer', 'activate']);
-register_deactivation_hook(__FILE__, ['Event_Installer', 'deactivate']);
+register_activation_hook(__FILE__, ['WPEM_Installer', 'activate']);
+register_deactivation_hook(__FILE__, ['WPEM_Installer', 'deactivate']);

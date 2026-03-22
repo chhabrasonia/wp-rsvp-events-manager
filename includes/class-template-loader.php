@@ -1,5 +1,5 @@
 <?php
-    class Event_Template_Loader {
+    class WPEM_Template_Loader {
 
         public function __construct() {
             add_filter('template_include', [$this, 'load_templates'], 99);
@@ -20,5 +20,5 @@
 
     }
 
-    new Event_Template_Loader();
+    new WPEM_Template_Loader();
 ?>

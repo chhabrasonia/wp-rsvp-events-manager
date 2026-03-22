@@ -1,6 +1,6 @@
 <?php
 
-	class Event {
+	class WPEM_Event {
 
 		public static function init() {
         	add_action('init', [self::class, 'register']);
@@ -29,4 +29,4 @@
 	    }
 	}
 	
-	Event::init();
+	WPEM_Event::init();

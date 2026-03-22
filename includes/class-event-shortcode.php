@@ -59,8 +59,9 @@ class WPEM_Shortcode {
          *******************
          */
         $args = [
-            'post_type' => 'event',
+            'post_type'      => 'event',
             'posts_per_page' => -1,
+            'post_status' 	 => 'publish'
         ];
 
         /**

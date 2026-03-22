@@ -7,56 +7,50 @@
 <section class="wpem-events-listing-block wpem-space">
     <div class="wpem-container">
         <div class="wpem-event-title-block">
-            <h2> Events </h2>
+            <h2><?php _e('Events', WPEM_TEXT_DOMAIN); ?></h2>
         </div>
     </div>
-    
+
     <!-- ======= WPEM FILTER FORM ========= -->
 
     <div class="wpem-events-filter-form">
         <form method="GET" class="wpem-event-filter-form">
             <div class="wpem-row wpem-grid-5">
                 <div class="wpem-form-group">
-                    <input 
-                        type="text" 
-                        name="search" 
-                        placeholder="Search events"
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="<?php esc_attr_e('Search events', WPEM_TEXT_DOMAIN); ?>"
                         value="<?php echo esc_attr($search); ?>"
                         class="wpem-form-control"
                     />
                 </div>
                 <div class="wpem-form-group">
-                    <input 
-                        type="date" 
-                        name="start" 
+                    <input
+                        type="date"
+                        name="start"
                         value="<?php echo esc_attr($start); ?>"
                         class="wpem-form-control"
                     />
                 </div>
-
                 <div class="wpem-form-group">
-
-                    <input 
-                        type="date" 
-                        name="end" 
+                    <input
+                        type="date"
+                        name="end"
                         value="<?php echo esc_attr($end); ?>"
                         class="wpem-form-control"
                     />
                 </div>
 
                 <?php
-                    $terms = get_terms([
-                        'taxonomy' => 'event_type',
-                        'hide_empty' => false
-                    ]);
+                    $terms = get_terms(['taxonomy' => 'event_type', 'hide_empty' => false]);
                 ?>
 
                 <div class="wpem-form-group">
-
                     <select name="type" class="wpem-form-control">
-                        <option value="">All Types</option>
+                        <option value=""><?php _e('All Types', WPEM_TEXT_DOMAIN); ?></option>
                         <?php foreach ($terms as $term): ?>
-                            <option 
+                            <option
                                 value="<?php echo esc_attr($term->slug); ?>"
                                 <?php selected($type, $term->slug); ?>
                             >
@@ -65,16 +59,17 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                    <button type="submit" class="wpem-btn-primary wpem-btn">Filter</button>
-                </div>
-        </form>
 
+                <button type="submit" class="wpem-btn-primary wpem-btn">
+                    <?php _e('Filter', WPEM_TEXT_DOMAIN); ?>
+                </button>
+            </div>
+        </form>
     </div>
 
     <!-- ======= WPEM EVENTS LISTING ========= -->
 
     <div class="wpem-events-listing-row">
-
         <div class="wpem-event-list wpem-grid-3">
 
             <?php if (!empty($events)): ?>
@@ -93,20 +88,19 @@
                             $location = get_post_meta($event->ID, '_location', true);
                         ?>
                         <ul>
-                            <li><strong>Date:</strong> <?php echo esc_html($date); ?></li>
-                            <li><strong>Location:</strong> <?php echo esc_html($location); ?></li>
+                            <li><strong><?php _e('Date:', WPEM_TEXT_DOMAIN); ?></strong> <?php echo esc_html($date); ?></li>
+                            <li><strong><?php _e('Location:', WPEM_TEXT_DOMAIN); ?></strong> <?php echo esc_html($location); ?></li>
                         </ul>
-
                     </div>
 
                 <?php endforeach; ?>
 
             <?php else: ?>
 
-                <p>No events found.</p>
+                <p><?php _e('No events found.', WPEM_TEXT_DOMAIN); ?></p>
 
             <?php endif; ?>
+
         </div>
     </div>
 </section>
-

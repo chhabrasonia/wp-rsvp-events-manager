@@ -1,5 +1,5 @@
 <?php
-	class Event_API_Controller {
+	class WPEM_API_Controller {
 
 	    public function __construct() {
 	        add_action('rest_api_init', [$this, 'routes']);
@@ -16,9 +16,9 @@
 	    public function get_events() {
 	        $posts = get_posts(
 	        	[
-	        	 'post_type' => 'event',
-	        	 'post_per_page'=> -1, 
-	        	 'post->status' => 'publish'
+	        	 'post_type'      => 'event',
+	        	 'posts_per_page' => -1, 
+	        	 'post_status'    => 'publish'
 	        	]
 	        );
 
@@ -36,6 +36,6 @@
 	        return $data;
 	    }
 	}
-	new Event_API_Controller();
+	new WPEM_API_Controller();
 
 ?>

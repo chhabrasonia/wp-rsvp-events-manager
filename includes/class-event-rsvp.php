@@ -19,7 +19,7 @@ class WPEM_RSVP {
         /********** Validate token ***********/
 
         if (!wp_verify_nonce($token, 'rsvp_' . $event_id . '_' . $user_id)) {
-            wp_die('Invalid RSVP link');
+             wp_die(__('Invalid RSVP link', WPEM_TEXT_DOMAIN));
         }
 
         global $wpdb;

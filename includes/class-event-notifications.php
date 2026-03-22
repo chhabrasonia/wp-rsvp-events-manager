@@ -24,6 +24,9 @@ class WPEM_Notifications {
 
         if ($post_after->post_type !== 'event') return;
 
+        // Only send if the event was already published before this save
+        if ($post_before->post_status !== 'publish' || $post_after->post_status !== 'publish') return;
+
         $this->send_email_to_users($post_id, 'Event Updated');
     }
 
@@ -63,20 +66,17 @@ class WPEM_Notifications {
 
             $subject = "$subject_prefix: " . get_the_title($event_id);
 
-            $message = "
-            Hi {$user->display_name},
+            $message  = sprintf(__('Hi %s,', WPEM_TEXT_DOMAIN), $user->display_name) . "\n\n";
+            $message .= sprintf(__('Event: %s', WPEM_TEXT_DOMAIN), get_the_title($event_id)) . "\n\n";
+            $message .= __('Please confirm your attendance:', WPEM_TEXT_DOMAIN) . "\n\n";
+            $message .= __('Yes:', WPEM_TEXT_DOMAIN)   . ' ' . $yes_link   . "\n";
+            $message .= __('No:', WPEM_TEXT_DOMAIN)    . ' ' . $no_link    . "\n";
+            $message .= __('Maybe:', WPEM_TEXT_DOMAIN) . ' ' . $maybe_link . "\n";
 
-            Event: " . get_the_title($event_id) . "
-
-            Please confirm your attendance:
-
-            Yes: $yes_link
-            No: $no_link
-            Maybe: $maybe_link ";
 
             wp_mail($user->user_email, $subject, $message);
         }
     }
 }
 
-new WPEM_Shortcode();
+new WPEM_Notifications();
