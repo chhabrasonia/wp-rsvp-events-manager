@@ -9,6 +9,12 @@
         add_meta_box('event_meta',  __('Event Details', WPEM_TEXT_DOMAIN), [$this, 'html'], 'event');
     }
 
+    /**
+     ***************************
+     * Meta data html 
+     ****************************
+     */
+
     public function html($post) {
         wp_nonce_field('event_nonce', 'event_nonce');
         $location = get_post_meta($post->ID, '_location', true);
@@ -31,6 +37,12 @@
               		  <textarea name ='location'> ". esc_attr($location) ." </textarea>
               	</div>";
     }
+
+    /**
+     ***************************
+     * Meta data Save
+     ****************************
+     */
 
     public function save($post_id) {
 

@@ -4,9 +4,9 @@
 
 <!-- ======= WPEM EVENTS BLOCK ========= -->
 
-<section class="wpem-events-listing-block">
+<section class="wpem-events-listing-block wpem-space">
     <div class="wpem-container">
-        <div class="wpem-title-block">
+        <div class="wpem-event-title-block">
             <h2> Events </h2>
         </div>
     </div>
@@ -15,57 +15,58 @@
 
     <div class="wpem-events-filter-form">
         <form method="GET" class="wpem-event-filter-form">
-            <div class="wpem-form-group">
-                <input 
-                    type="text" 
-                    name="search" 
-                    placeholder="Search events"
-                    value="<?php echo esc_attr($search); ?>"
-                    class="wpem-form-control"
-                />
-            </div>
-            <div class="wpem-form-group">
-                <input 
-                    type="date" 
-                    name="start" 
-                    value="<?php echo esc_attr($start); ?>"
-                    class="wpem-form-control"
-                />
-            </div>
+            <div class="wpem-row wpem-grid-5">
+                <div class="wpem-form-group">
+                    <input 
+                        type="text" 
+                        name="search" 
+                        placeholder="Search events"
+                        value="<?php echo esc_attr($search); ?>"
+                        class="wpem-form-control"
+                    />
+                </div>
+                <div class="wpem-form-group">
+                    <input 
+                        type="date" 
+                        name="start" 
+                        value="<?php echo esc_attr($start); ?>"
+                        class="wpem-form-control"
+                    />
+                </div>
 
-            <div class="wpem-form-group">
+                <div class="wpem-form-group">
 
-                <input 
-                    type="date" 
-                    name="end" 
-                    value="<?php echo esc_attr($end); ?>"
-                    class="wpem-form-control"
-                />
-            </div>
+                    <input 
+                        type="date" 
+                        name="end" 
+                        value="<?php echo esc_attr($end); ?>"
+                        class="wpem-form-control"
+                    />
+                </div>
 
-            <?php
-                $terms = get_terms([
-                    'taxonomy' => 'event_type',
-                    'hide_empty' => false
-                ]);
-            ?>
+                <?php
+                    $terms = get_terms([
+                        'taxonomy' => 'event_type',
+                        'hide_empty' => false
+                    ]);
+                ?>
 
-            <div class="wpem-form-group">
+                <div class="wpem-form-group">
 
-                <select name="type">
-                    <option value="">All Types</option>
-                    <?php foreach ($terms as $term): ?>
-                        <option 
-                            value="<?php echo esc_attr($term->slug); ?>"
-                            <?php selected($type, $term->slug); ?>
-                        >
-                            <?php echo esc_html($term->name); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <button type="submit">Filter</button>
+                    <select name="type" class="wpem-form-control">
+                        <option value="">All Types</option>
+                        <?php foreach ($terms as $term): ?>
+                            <option 
+                                value="<?php echo esc_attr($term->slug); ?>"
+                                <?php selected($type, $term->slug); ?>
+                            >
+                                <?php echo esc_html($term->name); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                    <button type="submit" class="wpem-btn-primary wpem-btn">Filter</button>
+                </div>
         </form>
 
     </div>
@@ -74,7 +75,7 @@
 
     <div class="wpem-events-listing-row">
 
-        <div class="wpem-event-results">
+        <div class="wpem-event-list wpem-grid-3">
 
             <?php if (!empty($events)): ?>
 

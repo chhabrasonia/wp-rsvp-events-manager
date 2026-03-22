@@ -5,6 +5,11 @@
 		public static function init() {
         	add_action('init', [self::class, 'register']);
     	}
+    	/*
+		*****************************************
+		* Register event post type and taxonomy 
+		*****************************************
+		*/
 	    public static function register() {
 	        register_post_type('event', [
 	            'label'        => __('Events', WPEM_TEXT_DOMAIN),

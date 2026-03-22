@@ -25,7 +25,7 @@ class WPEM_Shortcode {
         // Load template
         ob_start();
 
-        $template = WPEM_PATH . '../templates/shortcode-event-filter.php';
+        $template = WPEM_PATH . 'templates/shortcode-event-filter.php';
 
         if (file_exists($template)) {
             include $template;

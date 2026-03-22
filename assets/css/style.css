@@ -1,0 +1,93 @@
+
+:root {
+	--wpem-blue        : #15aeeb;
+	--wpem-gray-border : #cccccc;
+	--wpem-text-gray   : #9c9a9a;
+	--wpem-light-gray  : #eeeeee;
+	--wpem-white       : #ffffff;
+}
+/*=========== Common Styles ===========*/
+
+.wpem-container {
+	max-width:  1200px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+.wpem-event-title-block {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+/*=========== form ===========*/
+
+.wpem-form-control {
+	width: 100%;
+	height: 45px;
+	padding: 0 15px;
+	border: 1px solid var(--wpem-gray-border);
+	color: var(--wpem-text-gray);
+	outline: 0;
+	font-size: 14px;
+}
+
+/*=========== buttons ===========*/
+.wpem-btn {
+	border: 0;
+	height: 45px;
+	outline: 0;
+	padding: 0 30px;
+}
+.wpem-btn-primary {
+	background: var(--wpem-blue);
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--wpem-white);
+}
+
+/*=========== Layout ===========*/
+
+.wpem-grid-5 {
+	display: flex;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 0 20px;
+}
+.wpem-grid-3 {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 0 20px;
+}
+.wpem-space {
+	padding: 70px 0;
+}
+
+/*========== WPEM Events block ===========*/
+
+.wpem-events-filter-form {
+	margin-bottom: 30px;
+}
+.wpem-events-listing-row ul, .wpem-event-item-row ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.wpem-events-listing-row h3, .wpem-event-item-row h3{
+	font-weight: 600;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.wpem-events-listing-row li {
+	font-size: 14px;
+}	
+.wpem-event-item {
+	box-shadow: 0 0 6px var(--wpem-gray-border);
+	padding: 20px;
+}
+
+/*============= WPEM inner Hero ===========*/
+.wpem-inner-hero {
+	background: var(--wpem-light-gray);
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

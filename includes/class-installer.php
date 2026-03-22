@@ -1,6 +1,6 @@
 <?php
 	class Event_Installer {
-
+		
 	    public static function activate() {
 	        Event::register(); 
 	        self::create_rsvp_table();
@@ -11,6 +11,11 @@
 	        flush_rewrite_rules();
 	    }
 
+	    /*
+		************************
+		 * Create RSVP Table
+		************************
+ 		*/
 	    private static function create_rsvp_table() {
 	        global $wpdb;
 	        $table = $wpdb->prefix . 'event_rsvp';

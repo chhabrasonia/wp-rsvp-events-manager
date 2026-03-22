@@ -14,12 +14,12 @@
 
 <!-- ============ EVENT LISTING BY TERM ============ -->
 
-<section class="wpem-events-listing-block">
+<section class="wpem-events-listing-block wpem-space">
     <div class="wpem-container">
         <div class="wpem-event-title-block">
             <h2> Event Details </h2>
         </div>
-        <div class="wpem-event-item-row">
+        <div class="wpem-event-list wpem-grid-3">
             <?php if (have_posts()): ?>
                 <div class="wpem-event-item">
                     <?php while (have_posts()): the_post(); ?>

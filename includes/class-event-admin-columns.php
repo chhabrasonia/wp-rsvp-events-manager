@@ -9,14 +9,16 @@ class WPEM_Admin_Columns {
 
     public function add_columns($columns) {
         
-        // Remove default date
+        /******** Remove default date *******/
+
         $date = $columns['date'];
         unset($columns['date']);
 
         $columns['event_date'] = __('Event Date', WPEM_TEXT_DOMAIN);
         $columns['location']   = __('Location', WPEM_TEXT_DOMAIN);
 
-        // Add date at end
+        /******** Add date at end *******/
+        
         $columns['date'] = $date;
 
         return $columns;
