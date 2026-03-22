@@ -30,6 +30,10 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('wpem-style', WPEM_URL . 'assets/css/style.css', [], '1.0');
 });
 
+add_action('admin_enqueue_scripts', function () {
+    wp_enqueue_style('wpem-admin-style', WPEM_URL . 'assets/css/admin-style.css', [], '1.0');
+});
+
 
 require_once WPEM_PATH . '/includes/class-installer.php';
 require_once WPEM_PATH . '/includes/class-event.php';

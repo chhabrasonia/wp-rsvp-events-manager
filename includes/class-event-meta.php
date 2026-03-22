@@ -20,27 +20,27 @@
         $location = get_post_meta($post->ID, '_location', true);
         $date     = get_post_meta($post->ID, '_event_date', true);
 
-        echo "<div class='form-group'>
-                <div class='form-label'>
+        echo "<div class='wpem-form-group'>
+                <div class='wpem-form-label'>
                 	<label>Event Date</label>
                 </div>
-                <div class='form-control'>
+                <div class='wpem-form-control'>
                 	<input type='date' name='event_date' value='" . esc_attr($date) . "' />
                 </div>
               </div>";
 
-        echo "<div class='form-group'>
-                 <div class='form-label'>
+        echo "<div class='wpem-form-group'>
+                 <div class='wpem-form-label'>
                  	<label>Location</label>
                  </div>
-                 <div class='form-control'>
+                 <div class='wpem-form-control'>
               		  <textarea name ='location'> ". esc_attr($location) ." </textarea>
               	</div>";
     }
 
     /**
      ***************************
-     * Meta data Save
+     * Save meta data
      ****************************
      */
 
