@@ -1,93 +1,216 @@
-
 :root {
-	--wpem-blue        : #15aeeb;
-	--wpem-gray-border : #cccccc;
-	--wpem-text-gray   : #9c9a9a;
-	--wpem-light-gray  : #eeeeee;
-	--wpem-white       : #ffffff;
+    --wpem-blue        : #15aeeb;
+    --wpem-blue-dark   : #0d8fc0;
+    --wpem-blue-light  : #e8f6fd;
+    --wpem-gray-border : #e0e0e0;
+    --wpem-text        : #1a1a2e;
+    --wpem-text-muted  : #6b7280;
+    --wpem-light-gray  : #f5f7fa;
+    --wpem-white       : #ffffff;
+    --wpem-radius      : 10px;
+    --wpem-shadow      : 0 2px 12px rgba(0,0,0,.07);
 }
+
 /*=========== Common Styles ===========*/
 
 .wpem-container {
-	max-width:  1200px;
-	margin: 0 auto;
-	padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
+.wpem-space { padding: 60px 0; }
 .wpem-event-title-block {
-	text-align: center;
-	margin-bottom: 40px;
+    text-align: center;
+    margin-bottom: 36px;
+}
+.wpem-event-title-block h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--wpem-text);
 }
 
-/*=========== form ===========*/
+/*=========== Hero ===========*/
 
-.wpem-form-control {
-	width: 100%;
-	height: 45px;
-	padding: 0 15px;
-	border: 1px solid var(--wpem-gray-border);
-	color: var(--wpem-text-gray);
-	outline: 0;
-	font-size: 14px;
+.wpem-inner-hero {
+    background: var(--wpem-blue);
+    padding: 56px 24px;
+    text-align: center;
 }
-
-/*=========== buttons ===========*/
-.wpem-btn {
-	border: 0;
-	height: 45px;
-	outline: 0;
-	padding: 0 30px;
-}
-.wpem-btn-primary {
-	background: var(--wpem-blue);
-	font-size: 16px;
-	font-weight: 600;
-	color: var(--wpem-white);
+.wpem-inner-hero h1 {
+    color: var(--wpem-white);
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
 }
 
-/*=========== Layout ===========*/
-
-.wpem-grid-5 {
-	display: flex;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 0 20px;
-}
-.wpem-grid-3 {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 0 20px;
-}
-.wpem-space {
-	padding: 70px 0;
-}
-
-/*========== WPEM Events block ===========*/
+/*=========== Filter form ===========*/
 
 .wpem-events-filter-form {
-	margin-bottom: 30px;
+    background: var(--wpem-light-gray);
+    border: 1px solid var(--wpem-gray-border);
+    border-radius: var(--wpem-radius);
+    padding: 20px 24px;
+    margin-bottom: 36px;
 }
-.wpem-events-listing-row ul, .wpem-event-item-row ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+.wpem-event-filter-form .wpem-grid-5 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
 }
-.wpem-events-listing-row h3, .wpem-event-item-row h3{
-	font-weight: 600;
-	font-size: 20px;
-	margin-bottom: 20px;
+.wpem-form-group { flex: 1 1 160px; }
+.wpem-form-control {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--wpem-gray-border);
+    border-radius: 8px;
+    color: var(--wpem-text);
+    font-size: 14px;
+    background: var(--wpem-white);
+    outline: none;
+    transition: border-color .15s;
 }
-.wpem-events-listing-row li {
-	font-size: 14px;
-}	
-.wpem-event-item {
-	box-shadow: 0 0 6px var(--wpem-gray-border);
-	padding: 20px;
+.wpem-form-control:focus { border-color: var(--wpem-blue); }
+select.wpem-form-control { cursor: pointer; }
+
+/*=========== Button ===========*/
+.wpem-btn {
+    height: 44px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .15s;
+}
+.wpem-btn-primary {
+    background: var(--wpem-blue);
+    color: var(--wpem-white);
+}
+.wpem-btn-primary:hover { background: var(--wpem-blue-dark); }
+
+/*=========== Event grid ===========*/
+
+.wpem-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
 }
 
-/*============= WPEM inner Hero ===========*/
-.wpem-inner-hero {
-	background: var(--wpem-light-gray);
-	height: 300px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+/*=========== Event card ===========*/
+
+.wpem-event-item {
+    background: var(--wpem-white);
+    border: 1px solid var(--wpem-gray-border);
+    border-radius: var(--wpem-radius);
+    overflow: hidden;
+    box-shadow: var(--wpem-shadow);
+    transition: box-shadow .2s, transform .2s;
+}
+.wpem-event-item:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,.11);
+    transform: translateY(-2px);
+}
+.wpem-event-item-header {
+    background: var(--wpem-blue-light);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.wpem-event-date-badge {
+    background: var(--wpem-blue);
+    color: var(--wpem-white);
+    border-radius: 8px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.wpem-event-date-badge .day  { font-size: 22px; }
+.wpem-event-date-badge .month{ font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+.wpem-event-item-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--wpem-text);
+    margin: 0;
+}
+.wpem-event-item-title a {
+    color: inherit;
+    text-decoration: none;
+}
+.wpem-event-item-title a:hover { color: var(--wpem-blue); }
+.wpem-event-item-body {
+    padding: 16px 20px;
+}
+.wpem-event-item-body ul {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+}
+.wpem-event-item-body li {
+    font-size: 13px;
+    color: var(--wpem-text-muted);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.wpem-event-item-body li strong { color: var(--wpem-text); }
+.wpem-event-link {
+    display: inline-block;
+    padding: 8px 18px;
+    background: var(--wpem-blue);
+    color: var(--wpem-white);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .15s;
+}
+.wpem-event-link:hover { background: var(--wpem-blue-dark); color: var(--wpem-white); }
+
+/*=========== Single event ===========*/
+
+.wpem-event-single-block .wpem-event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    background: var(--wpem-light-gray);
+    border: 1px solid var(--wpem-gray-border);
+    border-radius: var(--wpem-radius);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+}
+.wpem-meta-item { display: flex; flex-direction: column; gap: 4px; }
+.wpem-meta-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--wpem-text-muted);
+}
+.wpem-meta-value { font-size: 15px; font-weight: 600; color: var(--wpem-text); }
+
+/*===========  No events  ===========*/
+
+.wpem-no-events {
+    text-align: center;
+    color: var(--wpem-text-muted);
+    padding: 40px 0;
+    font-size: 15px;
+}
+
+/*=========== Responsive  ===========*/
+@media (max-width: 640px) {
+    .wpem-event-filter-form .wpem-grid-5 { flex-direction: column; }
+    .wpem-inner-hero h1 { font-size: 26px; }
 }

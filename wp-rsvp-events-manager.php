@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP RSVP Events Manager
  * Description: A Events Manager Plugin along with RSVP
- * Text Domain: wp-events-manager
+ * Text Domain: wp-rsvp-events-manager
  * Author     : Sonia Chhabra
  * Update URI : false
  */
@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) exit;
 
 define('WPEM_PATH', plugin_dir_path(__FILE__));
 define('WPEM_URL', plugin_dir_url(__FILE__));
-define('WPEM_TEXT_DOMAIN', 'wp-events-manager');
+define('WPEM_TEXT_DOMAIN', 'wp-rsvp-events-manager');
 
 /*
 ************************
@@ -40,6 +40,7 @@ require_once WPEM_PATH . 'includes/class-installer.php';
 require_once WPEM_PATH . 'includes/class-event.php';
 require_once WPEM_PATH . 'includes/class-event-meta.php';
 require_once WPEM_PATH . 'includes/class-event-admin-columns.php';
+require_once WPEM_PATH . 'includes/class-event-cache.php';
 require_once WPEM_PATH . 'includes/class-event-shortcode.php';
 require_once WPEM_PATH . 'includes/class-event-notifications.php';
 require_once WPEM_PATH . 'includes/class-event-rsvp.php';

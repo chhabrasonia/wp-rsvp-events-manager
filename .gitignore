@@ -1,0 +1,20 @@
+# Composer
+/vendor/
+
+# npm
+/node_modules/
+
+# Local config overrides (use .dist versions instead)
+.phpcs.xml
+phpunit.xml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# WordPress test files (generated locally by bin/install-wp-tests.sh)
+/tmp/

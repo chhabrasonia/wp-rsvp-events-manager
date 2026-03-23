@@ -1,7 +1,9 @@
 
 :root {
 	--wpem-gray-border : #cccccc;
+	--wpem-text        : #1a1a2e;
 }
+
 
 /*=========== form ===========*/
 
@@ -17,7 +19,7 @@
 	height: 45px;
 	padding: 0 15px;
 	border: 1px solid var(--wpem-gray-border);
-	color: var(--wpem-text-gray);
+	color: var(--wpem-text);
 	outline: 0;
 	font-size: 14px;
 }

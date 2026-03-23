@@ -22,7 +22,7 @@
 
         echo "<div class='wpem-form-group'>
                 <div class='wpem-form-label'>
-                	<label>Event Date</label>
+                	<label>".esc_html( 'Event Date', WPEM_TEXT_DOMAIN ) ."</label>
                 </div>
                 <div class='wpem-form-control'>
                 	<input type='date' name='event_date' value='" . esc_attr($date) . "' />
@@ -31,7 +31,7 @@
 
         echo "<div class='wpem-form-group'>
                  <div class='wpem-form-label'>
-                 	<label>Location</label>
+                 	<label>". esc_html( 'Location', WPEM_TEXT_DOMAIN )."</label>
                  </div>
                  <div class='wpem-form-control'>
               		  <textarea name ='location'> ". esc_textarea($location) ." </textarea>
